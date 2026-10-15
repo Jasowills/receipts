@@ -247,7 +247,7 @@ Policy choices appear as visible receipt notes.
 A composite action lives in `action/`. It installs a pinned release
 (checksum verified), runs the audit, and updates one PR comment found
 by the `<!-- receipts-report -->` marker. Point `version` at a real
-release and replace OWNER with the repository owner.
+release once v0.1.0 is tagged.
 
 ```yaml
 permissions:
@@ -256,7 +256,7 @@ permissions:
 
 steps:
   - uses: actions/checkout@v4
-  - uses: ./action # or OWNER/receipts/action@<sha>
+  - uses: ./action # or Jasowills/receipts/action@<sha>
     with:
       version: 0.1.0
       fail-on: never # never|contradictions|findings

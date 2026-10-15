@@ -62,7 +62,7 @@ runs:
           Linux-aarch64|Linux-arm64) asset="receipts_${RECEIPTS_VERSION}_Linux_arm64.tar.gz" ;;
           *) echo "receipts: unsupported platform $(uname -s)-$(uname -m)"; exit 1 ;;
         esac
-        base="https://github.com/OWNER/receipts/releases/download/v${RECEIPTS_VERSION}"
+        base="https://github.com/Jasowills/receipts/releases/download/v${RECEIPTS_VERSION}"
         tmp="$(mktemp -d)"
         trap 'rm -rf "$tmp"' EXIT
         curl -fsSL -o "$tmp/$asset" "$base/$asset"
