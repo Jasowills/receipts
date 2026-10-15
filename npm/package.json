@@ -1,0 +1,17 @@
+{
+  "name": "rcpt-cli",
+  "version": "0.1.0",
+  "private": true,
+  "description": "PROVISIONAL wrapper: downloads the pinned Receipts release binary, verifies its SHA-256 checksum, and forwards argv. Do not publish: the public name awaits the owner decision (see DECISIONS.md V-006).",
+  "bin": {
+    "rcpt": "./bin/run.js"
+  },
+  "scripts": {
+    "postinstall": "node ./install.js",
+    "test": "node ./test/mapping.js && node ./test/checksum.js"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "license": "UNLICENSED"
+}

@@ -1,0 +1,54 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://receipts.dev/schema/receipts-config-1.0.0.json",
+  "title": "Receipts configuration",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "agent": {"type": "string", "enum": ["auto", "opencode", "claude", "codex"]},
+    "strictness": {"type": "string", "enum": ["conservative", "balanced", "strict"]},
+    "test": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "command": {"type": "string"},
+        "timeout_seconds": {"type": "integer", "minimum": 1, "maximum": 7200},
+        "shell": {"type": "boolean"}
+      }
+    },
+    "scope": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "allowed_paths": {"type": "array", "items": {"type": "string"}},
+        "forbidden_paths": {"type": "array", "items": {"type": "string"}}
+      }
+    },
+    "checks": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "test_files_changed": {"type": "boolean"},
+        "assertions_removed": {"type": "boolean"},
+        "skips_added": {"type": "boolean"},
+        "out_of_scope_changes": {"type": "boolean"},
+        "dependencies_changed": {"type": "boolean"},
+        "build_config_changed": {"type": "boolean"},
+        "secret_patterns": {"type": "boolean"}
+      }
+    },
+    "store": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "directory": {"type": "string"},
+        "retain_output_tail_bytes": {"type": "integer", "minimum": 0, "maximum": 8192}
+      }
+    },
+    "llm": {
+      "type": "object", "additionalProperties": false,
+      "properties": {
+        "enabled": {"type": "boolean"},
+        "provider": {"type": "string"},
+        "model": {"type": "string"},
+        "endpoint": {"type": "string"}
+      }
+    }
+  }
+}

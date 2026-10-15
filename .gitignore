@@ -1,0 +1,19 @@
+# Binaries and build output
+/receipts
+/dist/
+
+# Local receipt stores (tool output, never committed)
+/.receipts/
+
+# npm wrapper cache (populated by postinstall)
+npm/vendor/
+npm/node_modules/
+
+# OS and editor noise
+.DS_Store
+*.swp
+*.bak
+
+# Test binaries and coverage
+*.test
+coverage.out

@@ -1,0 +1,24 @@
+{
+  "schema_version": "1.0.0",
+  "id": "RC-4F2A",
+  "created_at": "2026-10-14T12:00:00Z",
+  "agent": {"name": "opencode", "session_id": "session-example", "adapter_version": "1"},
+  "tier": 0,
+  "duration_ms": 840000,
+  "repo": {
+    "root": ".",
+    "head_before": "abc123",
+    "head_after": "abc123",
+    "branch_before": "main",
+    "branch_after": "main",
+    "baseline_confidence": "low",
+    "dirty_before": "unknown",
+    "dirty_after": true
+  },
+  "claims": [],
+  "flags": [],
+  "evidence": [],
+  "warnings": [],
+  "summary": {"verified": 0, "contradicted": 0, "unverified": 0, "unverifiable": 0, "flags": 0},
+  "chain": {"event_hash": "", "previous_hash": "", "algorithm": "sha256"}
+}

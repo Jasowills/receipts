@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Receipt RC-4F2A</title>
+<style>
+body{font-family:monospace;max-width:72em;margin:2em;color:#1a1a1a;background:#fff}.verified{color:#0f6e56;font-weight:bold}.contradicted{color:#b00020;font-weight:bold}.unverified{color:#ba7517;font-weight:bold}.unverifiable{color:#555}</style>
+</head>
+<body>
+<h1>Receipt RC-4F2A</h1>
+<dl><dt>Agent</dt><dd>opencode</dd><dt>Tier</dt><dd>0</dd><dt>Baseline confidence</dt><dd>low</dd><dt>Created</dt><dd>2026-10-14T12:00:00Z</dd><dt>Duration</dt><dd>840000ms</dd></dl>
+<h2>Claims</h2>
+<ul>
+<li><strong>C-001</strong> <code>TESTS_PASS</code> <span class="unverified">UNVERIFIED</span><br>all tests pass<br>Reason: No command evidence exists in audit mode.</li>
+<li><strong>C-002</strong> <code>FILES_CHANGED</code> <span class="verified">VERIFIED</span><br>only touched src/auth<br>Reason: Observed changed paths match the stated list.<br>Evidence: E-001</li>
+</ul>
+<h2>Flags</h2>
+<ul>
+<li><strong>F-001</strong> <code>TEST_ASSERTIONS_REDUCED</code> [high]<br>Assertion tokens reduced<br>tests/auth.test.ts: 8 -&gt; 5 assertion tokens<br>Paths: tests/auth.test.ts</li>
+</ul>
+<h2>Evidence</h2>
+<ul>
+<li>E-001 diff 2026-10-14T12:00:00Z</li>
+<li>E-002 diff 2026-10-14T12:00:00Z</li>
+</ul>
+<h2>Warnings</h2>
+<ul>
+<li>adapter issue: no transcript detected</li>
+</ul>
+<p>Summary: 1 verified, 0 contradicted, 1 unverified, 0 unverifiable, 1 flags</p>
+</body>
+</html>

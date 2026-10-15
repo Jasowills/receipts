@@ -1,0 +1,32 @@
+# GoReleaser configuration for Receipts binaries.
+# Builds macOS arm64/amd64 plus Linux amd64/arm64 with reproducible flags
+# and SHA-256 checksums attached to GitHub Releases. No cgo, no signing
+# yet: checksums guard accidental corruption, not a compromised account.
+version: 2
+project_name: receipts
+builds:
+  - id: receipts
+    main: ./cmd/receipts
+    binary: receipts
+    goos: [darwin, linux]
+    goarch: [amd64, arm64]
+    flags:
+      - -trimpath
+    ldflags:
+      - -s -w
+    env:
+      - CGO_ENABLED=0
+archives:
+  - id: receipts
+    builds: [receipts]
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format: tar.gz
+    files:
+      - README.md
+      - LICENSE*
+checksum:
+  name_template: checksums.txt
+  algorithm: sha256
+release:
+  draft: true
+  fail_on_unmatched_patterns: true

@@ -1,0 +1,5 @@
+[
+  {"id": "ses_old000000000000000001", "directory": "/tmp/other", "title": "old session", "time_updated": 1760000000000},
+  {"id": "ses_mid000000000000000003", "directory": "/work/proj", "title": "older proj session", "time_updated": 1760050000000},
+  {"id": "ses_new000000000000000002", "directory": "/work/proj", "title": "fix auth", "time_updated": 1760100000000}
+]

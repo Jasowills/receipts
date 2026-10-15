@@ -1,0 +1,102 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://receipts.dev/schema/receipt-1.0.0.json",
+  "title": "Receipts receipt",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "id", "created_at", "agent", "tier", "duration_ms", "repo", "claims", "flags", "evidence", "warnings", "summary", "chain"],
+  "properties": {
+    "schema_version": {"const": "1.0.0"},
+    "id": {"type": "string", "pattern": "^RC-[A-F0-9]{4}$"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "agent": {
+      "type": "object", "additionalProperties": false,
+      "required": ["name"],
+      "properties": {
+        "name": {"type": "string", "minLength": 1},
+        "session_id": {"type": "string"},
+        "adapter_version": {"type": "string"}
+      }
+    },
+    "tier": {"type": "integer", "enum": [0, 1, 2]},
+    "duration_ms": {"type": "integer", "minimum": 0},
+    "repo": {
+      "type": "object", "additionalProperties": false,
+      "required": ["root", "baseline_confidence"],
+      "properties": {
+        "root": {"type": "string"},
+        "head_before": {"type": "string"},
+        "head_after": {"type": "string"},
+        "branch_before": {"type": "string"},
+        "branch_after": {"type": "string"},
+        "baseline_confidence": {"type": "string", "enum": ["high", "medium", "low", "unknown"]},
+        "dirty_before": {"type": "string", "enum": ["true", "false", "unknown"]},
+        "dirty_after": {"type": "boolean"},
+        "non_git": {"type": "boolean"}
+      }
+    },
+    "claims": {"type": "array", "items": {"$ref": "#/$defs/claim"}},
+    "flags": {"type": "array", "items": {"$ref": "#/$defs/flag"}},
+    "evidence": {"type": "array", "items": {"$ref": "#/$defs/evidence"}},
+    "warnings": {"type": "array", "items": {"type": "string"}},
+    "summary": {
+      "type": "object", "additionalProperties": false,
+      "required": ["verified", "contradicted", "unverified", "unverifiable", "flags"],
+      "properties": {
+        "verified": {"type": "integer", "minimum": 0},
+        "contradicted": {"type": "integer", "minimum": 0},
+        "unverified": {"type": "integer", "minimum": 0},
+        "unverifiable": {"type": "integer", "minimum": 0},
+        "flags": {"type": "integer", "minimum": 0}
+      }
+    },
+    "chain": {
+      "type": "object", "additionalProperties": false,
+      "required": ["event_hash", "previous_hash", "algorithm"],
+      "properties": {
+        "event_hash": {"type": "string"},
+        "previous_hash": {"type": "string"},
+        "algorithm": {"const": "sha256"}
+      }
+    }
+  },
+  "$defs": {
+    "claim": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "type", "text", "source", "verdict", "evidence_refs", "reason"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^C-[0-9]{3,}$"},
+        "type": {"type": "string", "enum": ["TESTS_PASS", "BUILD_OK", "LINT_CLEAN", "FILES_CHANGED", "NO_OTHER_CHANGES", "DEPENDENCY_ADDED", "ISSUE_FIXED", "OTHER"]},
+        "text": {"type": "string"},
+        "source": {"type": "object", "additionalProperties": false, "required": ["message_id", "role"], "properties": {"message_id": {"type": "string"}, "role": {"type": "string"}, "timestamp": {"type": "string", "format": "date-time"}, "excerpt_hash": {"type": "string"}}},
+        "verdict": {"type": "string", "enum": ["VERIFIED", "CONTRADICTED", "UNVERIFIED", "UNVERIFIABLE"]},
+        "evidence_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^E-[0-9]{3,}$"}},
+        "reason": {"type": "string"}
+      }
+    },
+    "flag": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "code", "severity", "title", "details", "evidence_refs"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^F-[0-9]{3,}$"},
+        "code": {"type": "string"},
+        "severity": {"type": "string", "enum": ["info", "warning", "high"]},
+        "title": {"type": "string"},
+        "details": {"type": "string"},
+        "paths": {"type": "array", "items": {"type": "string"}},
+        "evidence_refs": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "^E-[0-9]{3,}$"}}
+      }
+    },
+    "evidence": {
+      "type": "object", "additionalProperties": false,
+      "required": ["id", "kind", "timestamp", "data"],
+      "properties": {
+        "id": {"type": "string", "pattern": "^E-[0-9]{3,}$"},
+        "kind": {"type": "string", "enum": ["git_snapshot", "diff", "command", "test_result", "reverify", "transcript", "adapter_status", "collection_warning"]},
+        "timestamp": {"type": "string", "format": "date-time"},
+        "data": {"type": "object"},
+        "sensitive": {"type": "boolean"}
+      }
+    }
+  }
+}

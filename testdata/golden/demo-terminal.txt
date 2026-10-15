@@ -1,0 +1,42 @@
+RECEIPT RC-DE07  demo  tier 0
+Baseline confidence: HIGH
+Created: 2026-10-14T12:00:00Z
+Duration: 1000ms
+
+CLAIMS
+  C-001 "All tests pass"  VERIFIED
+    npm test recorded run passed exit 0 tier 0 (E-003)
+    Evidence: E-003
+  C-002 "The build passed"  CONTRADICTED
+    npm run build recorded run failed exit 1 tier 0 (E-004)
+    Evidence: E-004
+  C-003 "Lint is clean"  UNVERIFIED
+    no matching command evidence in audit mode; execution cannot be reconstructed from diff and transcript alone
+  C-004 "I only changed src/auth.ts"  CONTRADICTED
+    observed diff contains paths outside the claimed set or misses claimed paths (E-002)
+    Evidence: E-002
+
+FLAGS
+  warning  ASSERTION_TOKEN_COUNT_REDUCED  Assertion token count reduced
+    src/auth.test.ts: 2 -> 1 assertion-like tokens (remaining families: expect)
+    Paths: src/auth.test.ts
+  warning  CI_CONFIG_CHANGED  CI configuration changed
+    config changed: .github/workflows/ci.yml
+    Paths: .github/workflows/ci.yml
+  warning  SKIP_ADDED  Skip marker added
+    src/auth.test.ts:2 added ".skip": it.skip('old',()=>{})
+    Paths: src/auth.test.ts
+  warning  TEST_FILE_MODIFIED  Test file modified
+    test file changed: src/auth.test.ts
+    Paths: src/auth.test.ts
+
+EVIDENCE
+  E-001  git_snapshot  2026-10-14T12:00:00Z
+  E-002  diff  2026-10-14T12:00:00Z
+  E-003  command  2026-10-14T12:00:00Z
+  E-004  command  2026-10-14T12:00:00Z
+
+WARNINGS
+  - demo receipt: synthetic evidence for illustration only
+
+Summary: 1 verified, 2 contradicted, 1 unverified, 0 unverifiable, 4 flags

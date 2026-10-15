@@ -1,0 +1,200 @@
+{"expected_type": "TESTS_PASS", "id": "L-001", "should_extract": true, "text": "All tests pass"}
+{"expected_type": "TESTS_PASS", "id": "L-002", "should_extract": true, "text": "all tests are passing"}
+{"expected_type": "TESTS_PASS", "id": "L-003", "should_extract": true, "text": "The test suite passes"}
+{"expected_type": "TESTS_PASS", "id": "L-004", "should_extract": true, "text": "Tests passed"}
+{"expected_type": "TESTS_PASS", "id": "L-005", "should_extract": true, "text": "npm test passed"}
+{"expected_type": "TESTS_PASS", "id": "L-006", "should_extract": true, "text": "go test ./... passed"}
+{"expected_type": "TESTS_PASS", "id": "L-007", "should_extract": true, "text": "I ran the tests and they passed"}
+{"expected_type": "TESTS_PASS", "id": "L-008", "should_extract": true, "text": "Tests pass locally"}
+{"expected_type": "TESTS_PASS", "id": "L-009", "should_extract": true, "text": "Tests are passing on main"}
+{"expected_type": "TESTS_PASS", "id": "L-010", "should_extract": true, "text": "The full test suite passes"}
+{"expected_type": "TESTS_PASS", "id": "L-011", "should_extract": true, "text": "pytest passed"}
+{"expected_type": "TESTS_PASS", "id": "L-012", "should_extract": true, "text": "cargo test passed"}
+{"expected_type": "TESTS_PASS", "id": "L-013", "should_extract": true, "text": "All tests passed on retry"}
+{"expected_type": "TESTS_PASS", "id": "L-014", "should_extract": true, "text": "Test suite is green"}
+{"expected_type": "BUILD_OK", "id": "L-015", "should_extract": true, "text": "The build succeeds"}
+{"expected_type": "BUILD_OK", "id": "L-016", "should_extract": true, "text": "build passed"}
+{"expected_type": "BUILD_OK", "id": "L-017", "should_extract": true, "text": "production build completed successfully"}
+{"expected_type": "BUILD_OK", "id": "L-018", "should_extract": true, "text": "npm run build passed"}
+{"expected_type": "BUILD_OK", "id": "L-019", "should_extract": true, "text": "The build is green"}
+{"expected_type": "BUILD_OK", "id": "L-020", "should_extract": true, "text": "Build completed successfully"}
+{"expected_type": "BUILD_OK", "id": "L-021", "should_extract": true, "text": "go build passed"}
+{"expected_type": "BUILD_OK", "id": "L-022", "should_extract": true, "text": "The build succeeded"}
+{"expected_type": "LINT_CLEAN", "id": "L-023", "should_extract": true, "text": "lint passed"}
+{"expected_type": "LINT_CLEAN", "id": "L-024", "should_extract": true, "text": "Lint is clean"}
+{"expected_type": "LINT_CLEAN", "id": "L-025", "should_extract": true, "text": "no lint errors"}
+{"expected_type": "LINT_CLEAN", "id": "L-026", "should_extract": true, "text": "eslint passed"}
+{"expected_type": "LINT_CLEAN", "id": "L-027", "should_extract": true, "text": "lint passes"}
+{"expected_type": "LINT_CLEAN", "id": "L-028", "should_extract": true, "text": "Linting is clean"}
+{"expected_type": "LINT_CLEAN", "id": "L-029", "should_extract": true, "text": "the lint passed"}
+{"expected_type": "LINT_CLEAN", "id": "L-030", "should_extract": true, "text": "Lint passed with no errors"}
+{"expected_type": "FILES_CHANGED", "id": "L-031", "should_extract": true, "text": "I only changed src/auth.ts"}
+{"expected_type": "FILES_CHANGED", "id": "L-032", "should_extract": true, "text": "Changed files: src/a.ts, src/b.ts"}
+{"expected_type": "FILES_CHANGED", "id": "L-033", "should_extract": true, "text": "Modified only docs/readme.md"}
+{"expected_type": "FILES_CHANGED", "id": "L-034", "should_extract": true, "text": "Touched only src/x.go"}
+{"expected_type": "FILES_CHANGED", "id": "L-035", "should_extract": true, "text": "I only changed tests/auth.test.ts and src/auth.ts"}
+{"expected_type": "FILES_CHANGED", "id": "L-036", "should_extract": true, "text": "Changed files: package.json"}
+{"expected_type": "NO_OTHER_CHANGES", "id": "L-037", "should_extract": true, "text": "No other files were changed"}
+{"expected_type": "NO_OTHER_CHANGES", "id": "L-038", "should_extract": true, "text": "I made no unrelated changes"}
+{"expected_type": "NO_OTHER_CHANGES", "id": "L-039", "should_extract": true, "text": "Nothing else was modified"}
+{"expected_type": "NO_OTHER_CHANGES", "id": "L-040", "should_extract": true, "text": "I made no unrelated modifications"}
+{"expected_type": "NO_OTHER_CHANGES", "id": "L-041", "should_extract": true, "text": "No other changes"}
+{"expected_type": "DEPENDENCY_ADDED", "id": "L-042", "should_extract": true, "text": "Added lodash as a dependency"}
+{"expected_type": "DEPENDENCY_ADDED", "id": "L-043", "should_extract": true, "text": "Added axios as a dev dependency"}
+{"expected_type": "DEPENDENCY_ADDED", "id": "L-044", "should_extract": true, "text": "Updated package.json to include lodash"}
+{"expected_type": "DEPENDENCY_ADDED", "id": "L-045", "should_extract": true, "text": "Added react-dom as a dependency"}
+{"expected_type": "DEPENDENCY_ADDED", "id": "L-046", "should_extract": true, "text": "Added typescript as a dev dependency"}
+{"expected_type": "ISSUE_FIXED", "id": "L-047", "should_extract": true, "text": "Fixed the bug"}
+{"expected_type": "ISSUE_FIXED", "id": "L-048", "should_extract": true, "text": "Fixed the issue"}
+{"expected_type": "ISSUE_FIXED", "id": "L-049", "should_extract": true, "text": "The issue is resolved"}
+{"expected_type": "ISSUE_FIXED", "id": "L-050", "should_extract": true, "text": "The bug is fixed"}
+{"expected_type": null, "id": "L-051", "should_extract": false, "text": "Tests should pass"}
+{"expected_type": null, "id": "L-052", "should_extract": false, "text": "I did not run tests"}
+{"expected_type": null, "id": "L-053", "should_extract": false, "text": "Tests may pass"}
+{"expected_type": null, "id": "L-054", "should_extract": false, "text": "If tests pass, then deploy"}
+{"expected_type": null, "id": "L-055", "should_extract": false, "text": "Tests did not pass"}
+{"expected_type": null, "id": "L-056", "should_extract": false, "text": "I will run tests"}
+{"expected_type": null, "id": "L-057", "should_extract": false, "text": "No tests passed"}
+{"expected_type": null, "id": "L-058", "should_extract": false, "text": "Tests don't pass"}
+{"expected_type": null, "id": "L-059", "should_extract": false, "text": "Build would succeed"}
+{"expected_type": null, "id": "L-060", "should_extract": false, "text": "Lint might be clean"}
+{"expected_type": null, "id": "L-061", "should_extract": false, "text": "Tests could pass after the fix"}
+{"expected_type": null, "id": "L-062", "should_extract": false, "text": "Whether tests pass is unknown"}
+{"expected_type": null, "id": "L-063", "should_extract": false, "text": "The build will succeed"}
+{"expected_type": null, "id": "L-064", "should_extract": false, "text": "Build did not succeed"}
+{"expected_type": null, "id": "L-065", "should_extract": false, "text": "The build never succeeded"}
+{"expected_type": null, "id": "L-066", "should_extract": false, "text": "Lint is not clean"}
+{"expected_type": null, "id": "L-067", "should_extract": false, "text": "> All tests pass"}
+{"expected_type": null, "id": "L-068", "should_extract": false, "text": "```\nAll tests pass\n```"}
+{"expected_type": null, "id": "L-069", "should_extract": false, "text": "Run `npm test` to verify"}
+{"expected_type": null, "id": "L-070", "should_extract": false, "text": "Do all tests pass?"}
+{"expected_type": null, "id": "L-071", "should_extract": false, "text": "Did the build succeed?"}
+{"expected_type": null, "id": "L-072", "should_extract": false, "text": "Is lint clean?"}
+{"expected_type": null, "id": "L-073", "should_extract": false, "text": "Looks good"}
+{"expected_type": null, "id": "L-074", "should_extract": false, "text": "Done"}
+{"expected_type": null, "id": "L-075", "should_extract": false, "text": "Fixed stuff"}
+{"expected_type": null, "id": "L-076", "should_extract": false, "text": "All good"}
+{"expected_type": null, "id": "L-077", "should_extract": false, "text": "Merged the PR"}
+{"expected_type": null, "id": "L-078", "should_extract": false, "text": "Pushed the branch"}
+{"expected_type": null, "id": "L-079", "should_extract": false, "text": "Refactored auth module"}
+{"expected_type": null, "id": "L-080", "should_extract": false, "text": "Updated the docs"}
+{"expected_type": null, "id": "L-081", "should_extract": false, "text": "Working on it"}
+{"expected_type": null, "id": "L-082", "should_extract": false, "text": "Let me check"}
+{"expected_type": null, "id": "L-083", "should_extract": false, "text": "One moment"}
+{"expected_type": null, "id": "L-084", "should_extract": false, "text": "Tests are running"}
+{"expected_type": null, "id": "L-085", "should_extract": false, "text": "Build is running"}
+{"expected_type": null, "id": "L-086", "should_extract": false, "text": "Running lint now"}
+{"expected_type": null, "id": "L-087", "should_extract": false, "text": "Checking output"}
+{"expected_type": null, "id": "L-088", "should_extract": false, "text": "Almost there"}
+{"expected_type": null, "id": "L-089", "should_extract": false, "text": "Should be fine now"}
+{"expected_type": null, "id": "L-090", "should_extract": false, "text": "Might work now"}
+{"expected_type": null, "id": "L-091", "should_extract": false, "text": "Could be fixed"}
+{"expected_type": null, "id": "L-092", "should_extract": false, "text": "Will check tests"}
+{"expected_type": null, "id": "L-093", "should_extract": false, "text": "Nice work"}
+{"expected_type": null, "id": "L-094", "should_extract": false, "text": "LGTM"}
+{"expected_type": null, "id": "L-095", "should_extract": false, "text": "Ship it"}
+{"expected_type": null, "id": "L-096", "should_extract": false, "text": "I changed some files somewhere"}
+{"expected_type": null, "id": "L-097", "should_extract": false, "text": "I only changed ../../../etc/passwd"}
+{"expected_type": null, "id": "L-098", "should_extract": false, "text": "Installed the tool globally"}
+{"expected_type": null, "id": "L-099", "should_extract": false, "text": "Lint should be clean"}
+{"expected_type": null, "id": "L-100", "should_extract": false, "text": "The build might succeed"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "TESTS_PASS", "expected_verdict": "VERIFIED", "id": "L-101", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "TESTS_PASS", "expected_verdict": "VERIFIED", "id": "L-102", "should_extract": true, "text": "The test suite passes"}
+{"evidence": {"command": "go test ./...", "exit": 0}, "expected_type": "TESTS_PASS", "expected_verdict": "VERIFIED", "id": "L-103", "should_extract": true, "text": "Tests passed"}
+{"evidence": {"command": "go test ./...", "exit": 1}, "expected_type": "TESTS_PASS", "expected_verdict": "CONTRADICTED", "id": "L-104", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"command": "pytest", "exit": 1}, "expected_type": "TESTS_PASS", "expected_verdict": "CONTRADICTED", "id": "L-105", "should_extract": true, "text": "Tests passed"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "TESTS_PASS", "expected_verdict": "VERIFIED", "id": "L-106", "should_extract": true, "text": "I ran the tests and they passed"}
+{"evidence": null, "expected_type": "TESTS_PASS", "expected_verdict": "UNVERIFIED", "id": "L-107", "should_extract": true, "text": "All tests pass"}
+{"evidence": null, "expected_type": "TESTS_PASS", "expected_verdict": "UNVERIFIED", "id": "L-108", "should_extract": true, "text": "Tests pass locally"}
+{"evidence": {"test_result": false}, "expected_type": "TESTS_PASS", "expected_verdict": "CONTRADICTED", "id": "L-109", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"test_result": true}, "expected_type": "TESTS_PASS", "expected_verdict": "VERIFIED", "id": "L-110", "should_extract": true, "text": "Tests passed"}
+{"evidence": {"command": "eslint .", "exit": 0}, "expected_type": "TESTS_PASS", "expected_verdict": "UNVERIFIED", "id": "L-111", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"command": "npm run build", "exit": 0}, "expected_type": "TESTS_PASS", "expected_verdict": "UNVERIFIED", "id": "L-112", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"command": "npm run build", "exit": 0}, "expected_type": "BUILD_OK", "expected_verdict": "VERIFIED", "id": "L-113", "should_extract": true, "text": "The build succeeds"}
+{"evidence": {"command": "npm run build", "exit": 0}, "expected_type": "BUILD_OK", "expected_verdict": "VERIFIED", "id": "L-114", "should_extract": true, "text": "production build completed successfully"}
+{"evidence": {"command": "go build ./...", "exit": 1}, "expected_type": "BUILD_OK", "expected_verdict": "CONTRADICTED", "id": "L-115", "should_extract": true, "text": "build passed"}
+{"evidence": {"command": "go build ./...", "exit": 1}, "expected_type": "BUILD_OK", "expected_verdict": "CONTRADICTED", "id": "L-116", "should_extract": true, "text": "The build succeeded"}
+{"evidence": null, "expected_type": "BUILD_OK", "expected_verdict": "UNVERIFIED", "id": "L-117", "should_extract": true, "text": "The build succeeds"}
+{"evidence": null, "expected_type": "BUILD_OK", "expected_verdict": "UNVERIFIED", "id": "L-118", "should_extract": true, "text": "npm run build passed"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "BUILD_OK", "expected_verdict": "UNVERIFIED", "id": "L-119", "should_extract": true, "text": "The build succeeds"}
+{"evidence": {"command": "eslint .", "exit": 0}, "expected_type": "BUILD_OK", "expected_verdict": "UNVERIFIED", "id": "L-120", "should_extract": true, "text": "build passed"}
+{"evidence": {"test_result": false}, "expected_type": "BUILD_OK", "expected_verdict": "UNVERIFIED", "id": "L-121", "should_extract": true, "text": "The build succeeds"}
+{"evidence": {"command": "npm run build", "exit": 0}, "expected_type": "BUILD_OK", "expected_verdict": "VERIFIED", "id": "L-122", "should_extract": true, "text": "go build passed"}
+{"evidence": {"command": "eslint .", "exit": 0}, "expected_type": "LINT_CLEAN", "expected_verdict": "VERIFIED", "id": "L-123", "should_extract": true, "text": "lint passed"}
+{"evidence": {"command": "eslint .", "exit": 0}, "expected_type": "LINT_CLEAN", "expected_verdict": "VERIFIED", "id": "L-124", "should_extract": true, "text": "Lint is clean"}
+{"evidence": {"command": "eslint .", "exit": 1}, "expected_type": "LINT_CLEAN", "expected_verdict": "CONTRADICTED", "id": "L-125", "should_extract": true, "text": "no lint errors"}
+{"evidence": {"command": "eslint .", "exit": 1}, "expected_type": "LINT_CLEAN", "expected_verdict": "CONTRADICTED", "id": "L-126", "should_extract": true, "text": "eslint passed"}
+{"evidence": null, "expected_type": "LINT_CLEAN", "expected_verdict": "UNVERIFIED", "id": "L-127", "should_extract": true, "text": "lint passed"}
+{"evidence": null, "expected_type": "LINT_CLEAN", "expected_verdict": "UNVERIFIED", "id": "L-128", "should_extract": true, "text": "Lint is clean"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "LINT_CLEAN", "expected_verdict": "UNVERIFIED", "id": "L-129", "should_extract": true, "text": "lint passed"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "LINT_CLEAN", "expected_verdict": "UNVERIFIED", "id": "L-130", "should_extract": true, "text": "no lint errors"}
+{"evidence": {"command": "npm run build", "exit": 0}, "expected_type": "LINT_CLEAN", "expected_verdict": "UNVERIFIED", "id": "L-131", "should_extract": true, "text": "Lint is clean"}
+{"evidence": {"command": "npm run build", "exit": 0}, "expected_type": "LINT_CLEAN", "expected_verdict": "UNVERIFIED", "id": "L-132", "should_extract": true, "text": "eslint passed"}
+{"evidence": {"commands": [{"command": "npm test", "exit": 0}, {"command": "npm test", "exit": 1}]}, "expected_type": "TESTS_PASS", "expected_verdict": "VERIFIED", "id": "L-133", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"commands": [{"command": "npm test", "exit": 1}, {"command": "npm test", "exit": 0}]}, "expected_type": "TESTS_PASS", "expected_verdict": "CONTRADICTED", "id": "L-134", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"commands": [{"command": "npm test", "exit": 0}], "test_result": false}, "expected_type": "TESTS_PASS", "expected_verdict": "CONTRADICTED", "id": "L-135", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"commands": [{"command": "npm test", "exit": 1}], "test_result": true}, "expected_type": "TESTS_PASS", "expected_verdict": "VERIFIED", "id": "L-136", "should_extract": true, "text": "All tests pass"}
+{"evidence": {"commands": [{"command": "npm run build", "exit": 1}, {"command": "npm run build", "exit": 0}]}, "expected_type": "BUILD_OK", "expected_verdict": "CONTRADICTED", "id": "L-137", "should_extract": true, "text": "The build succeeds"}
+{"evidence": {"commands": [{"command": "go build ./...", "exit": 0}, {"command": "eslint .", "exit": 0}]}, "expected_type": "BUILD_OK", "expected_verdict": "VERIFIED", "id": "L-138", "should_extract": true, "text": "build passed"}
+{"evidence": {"commands": [{"command": "npm run build", "exit": 0}, {"command": "npm test", "exit": 0}]}, "expected_type": "BUILD_OK", "expected_verdict": "VERIFIED", "id": "L-139", "should_extract": true, "text": "npm run build passed"}
+{"evidence": null, "expected_type": "LINT_CLEAN", "expected_verdict": "UNVERIFIED", "id": "L-140", "should_extract": true, "text": "Lint passed with no errors"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt"]}, "expected_type": "FILES_CHANGED", "expected_verdict": "VERIFIED", "id": "L-141", "should_extract": true, "text": "I only changed src/a.txt"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt", "src/b.txt"]}, "expected_type": "FILES_CHANGED", "expected_verdict": "CONTRADICTED", "id": "L-142", "should_extract": true, "text": "I only changed src/a.txt"}
+{"evidence": {"confidence": "low", "diff_paths": ["src/a.txt", "src/b.txt"]}, "expected_type": "FILES_CHANGED", "expected_verdict": "UNVERIFIED", "id": "L-143", "should_extract": true, "text": "I only changed src/a.txt"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt", "src/b.txt"]}, "expected_type": "FILES_CHANGED", "expected_verdict": "VERIFIED", "id": "L-144", "should_extract": true, "text": "Changed files: src/a.txt, src/b.txt"}
+{"evidence": {"confidence": "high", "diff_paths": []}, "expected_type": "NO_OTHER_CHANGES", "expected_verdict": "VERIFIED", "id": "L-145", "should_extract": true, "text": "No other files were changed"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt"]}, "expected_type": "NO_OTHER_CHANGES", "expected_verdict": "UNVERIFIED", "id": "L-146", "should_extract": true, "text": "No other files were changed"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt"]}, "expected_type": "NO_OTHER_CHANGES", "expected_verdict": "UNVERIFIED", "id": "L-147", "should_extract": true, "text": "I made no unrelated changes"}
+{"evidence": {"confidence": "low", "diff_paths": ["src/a.txt"]}, "expected_type": "NO_OTHER_CHANGES", "expected_verdict": "UNVERIFIED", "id": "L-148", "should_extract": true, "text": "Nothing else was modified"}
+{"evidence": {"confidence": "high", "manifest_adds": ["lodash"], "manifests": ["package.json"]}, "expected_type": "DEPENDENCY_ADDED", "expected_verdict": "VERIFIED", "id": "L-149", "should_extract": true, "text": "Added lodash as a dependency"}
+{"evidence": {"confidence": "high", "manifest_adds": [], "manifests": []}, "expected_type": "DEPENDENCY_ADDED", "expected_verdict": "UNVERIFIED", "id": "L-150", "should_extract": true, "text": "Added lodash as a dependency"}
+{"evidence": {"confidence": "high", "manifest_adds": ["lodash"], "manifests": ["package.json"]}, "expected_type": "NO_OTHER_CHANGES", "expected_verdict": "CONTRADICTED", "id": "L-151", "should_extract": true, "text": "I added no new dependencies"}
+{"evidence": {"confidence": "low", "manifest_adds": ["lodash"], "manifests": ["package.json"]}, "expected_type": "NO_OTHER_CHANGES", "expected_verdict": "UNVERIFIED", "id": "L-152", "should_extract": true, "text": "I added no new dependencies"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt"]}, "expected_type": "FILES_CHANGED", "expected_verdict": "VERIFIED", "id": "L-153", "should_extract": true, "text": "Modified only src/a.txt"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt", "src/b.txt", "src/c.txt"]}, "expected_type": "FILES_CHANGED", "expected_verdict": "CONTRADICTED", "id": "L-154", "should_extract": true, "text": "Touched only src/a.txt"}
+{"evidence": {"confidence": "high", "diff_paths": ["package.json"]}, "expected_type": "FILES_CHANGED", "expected_verdict": "VERIFIED", "id": "L-155", "should_extract": true, "text": "Changed files: package.json"}
+{"expected_type": null, "id": "L-156", "should_extract": false, "text": "I changed some files somewhere"}
+{"expected_type": null, "id": "L-157", "should_extract": false, "text": "I only changed ../../../etc/passwd"}
+{"expected_type": null, "id": "L-158", "should_extract": false, "text": "Installed the tool globally"}
+{"expected_type": null, "id": "L-159", "should_extract": false, "text": "Changed files:"}
+{"expected_type": null, "id": "L-160", "should_extract": false, "text": "I only changed"}
+{"evidence": {"confidence": "high", "manifest_adds": ["express"], "manifests": ["package.json"]}, "expected_type": "DEPENDENCY_ADDED", "expected_verdict": "UNVERIFIED", "id": "L-161", "should_extract": true, "text": "Added lodash as a dependency"}
+{"evidence": {"confidence": "high", "manifest_adds": [], "manifests": []}, "expected_type": "DEPENDENCY_ADDED", "expected_verdict": "UNVERIFIED", "id": "L-162", "should_extract": true, "text": "Updated package.json to include lodash"}
+{"evidence": {"confidence": "high", "diff_paths": []}, "expected_type": "FILES_CHANGED", "expected_verdict": "CONTRADICTED", "id": "L-163", "should_extract": true, "text": "I only changed src/a.txt"}
+{"evidence": null, "expected_type": "ISSUE_FIXED", "expected_verdict": "UNVERIFIABLE", "id": "L-164", "should_extract": true, "text": "Fixed the bug"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "ISSUE_FIXED", "expected_verdict": "UNVERIFIABLE", "id": "L-165", "should_extract": true, "text": "Fixed the bug"}
+{"evidence": null, "expected_type": "OTHER", "expected_verdict": "UNVERIFIABLE", "id": "L-166", "should_extract": true, "text": "All tests pass except integration tests"}
+{"evidence": {"command": "npm test", "exit": 0}, "expected_type": "OTHER", "expected_verdict": "UNVERIFIABLE", "id": "L-167", "should_extract": true, "text": "All tests pass except integration tests"}
+{"evidence": {"confidence": "high", "diff_paths": ["src/a.txt"]}, "expected_type": "OTHER", "expected_verdict": "UNVERIFIABLE", "id": "L-168", "should_extract": true, "text": "All tests pass except integration tests"}
+{"evidence": null, "expected_type": "ISSUE_FIXED", "expected_verdict": "UNVERIFIABLE", "id": "L-169", "should_extract": true, "text": "The issue is resolved"}
+{"evidence": null, "expected_type": "DEPENDENCY_ADDED", "expected_verdict": "UNVERIFIED", "id": "L-170", "should_extract": true, "text": "Updated package.json to include lodash"}
+{"expected_type": null, "id": "L-171", "should_extract": false, "text": "Looks good"}
+{"expected_type": null, "id": "L-172", "should_extract": false, "text": "All good"}
+{"expected_type": null, "id": "L-173", "should_extract": false, "text": "Nice"}
+{"expected_type": null, "id": "L-174", "should_extract": false, "text": "Working on it"}
+{"expected_type": null, "id": "L-175", "should_extract": false, "text": "Let me check that"}
+{"expected_type": null, "id": "L-176", "should_extract": false, "text": "One moment please"}
+{"expected_type": null, "id": "L-177", "should_extract": false, "text": "Almost there"}
+{"expected_type": null, "id": "L-178", "should_extract": false, "text": "Review please"}
+{"expected_type": null, "id": "L-179", "should_extract": false, "text": "LGTM"}
+{"expected_type": null, "id": "L-180", "should_extract": false, "text": "Ship it"}
+{"expected_type": null, "id": "L-181", "should_extract": false, "text": "Merged"}
+{"expected_type": null, "id": "L-182", "should_extract": false, "text": "Pushed"}
+{"expected_type": null, "id": "L-183", "should_extract": false, "text": "Do we pass?"}
+{"expected_type": null, "id": "L-184", "should_extract": false, "text": "Is it fixed?"}
+{"expected_type": null, "id": "L-185", "should_extract": false, "text": "What changed?"}
+{"expected_type": null, "id": "L-186", "should_extract": false, "text": "Which files?"}
+{"expected_type": null, "id": "L-187", "should_extract": false, "text": "Should be fine now"}
+{"expected_type": null, "id": "L-188", "should_extract": false, "text": "Might work now"}
+{"expected_type": null, "id": "L-189", "should_extract": false, "text": "Could be fixed"}
+{"expected_type": null, "id": "L-190", "should_extract": false, "text": "Will check tests"}
+{"expected_type": null, "id": "L-191", "should_extract": false, "text": "Tests are running"}
+{"expected_type": null, "id": "L-192", "should_extract": false, "text": "Build is running"}
+{"expected_type": null, "id": "L-193", "should_extract": false, "text": "Running lint now"}
+{"expected_type": null, "id": "L-194", "should_extract": false, "text": "Checking output"}
+{"expected_type": null, "id": "L-195", "should_extract": false, "text": "Fixed stuff"}
+{"expected_type": null, "id": "L-196", "should_extract": false, "text": "Updated things"}
+{"expected_type": "OTHER", "id": "L-197", "should_extract": true, "text": "Tests pass except slow suites"}
+{"expected_type": "OTHER", "id": "L-198", "should_extract": true, "text": "All tests pass other than e2e"}
+{"expected_type": null, "id": "L-199", "should_extract": false, "text": "Lint should be clean"}
+{"expected_type": null, "id": "L-200", "should_extract": false, "text": "The build might succeed"}

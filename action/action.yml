@@ -1,0 +1,161 @@
+# Receipts GitHub Action (composite, no container).
+#
+# Least privilege example for the calling workflow:
+#
+#   permissions:
+#     contents: read        # always needed: checkout and audit
+#     pull-requests: write  # only when comment: true (bot comment update)
+#
+# Forked pull requests must not receive secrets or write tokens in a
+# workflow that executes untrusted code. When posting fails (forks,
+# missing permission), the action uploads the report as an artifact
+# and explains why the comment was skipped instead of failing the job.
+#
+# The bot comment carries <!-- receipts-report --> so repeated runs
+# update one comment instead of posting duplicates.
+
+name: "Receipts audit"
+description: "Run a Receipts audit and report the receipt as a PR comment"
+inputs:
+  version:
+    description: "Pinned Receipts release without leading v, e.g. 0.1.0"
+    required: true
+  working-directory:
+    description: "Project directory to audit"
+    required: false
+    default: "."
+  receipt:
+    description: "Receipt ID to report (default: latest)"
+    required: false
+    default: ""
+  comment:
+    description: "Post or update the PR comment (true/false)"
+    required: false
+    default: "true"
+  fail-on:
+    description: "Fail the job on findings: never|contradictions|findings"
+    required: false
+    default: "never"
+outputs:
+  receipt-path:
+    description: "Path to the canonical receipt JSON"
+    value: ${{ steps.audit.outputs.receipt-path }}
+  summary:
+    description: "Verdict counts as verified,contradicted,unverified,unverifiable,flags"
+    value: ${{ steps.audit.outputs.summary }}
+  comment-outcome:
+    description: "created, updated, skipped, or disabled"
+    value: ${{ steps.comment.outputs.outcome }}
+runs:
+  using: "composite"
+  steps:
+    - name: Install pinned Receipts release
+      shell: bash
+      env:
+        RECEIPTS_VERSION: ${{ inputs.version }}
+      run: |
+        set -euo pipefail
+        case "$(uname -s)-$(uname -m)" in
+          Darwin-arm64) asset="receipts_${RECEIPTS_VERSION}_Darwin_arm64.tar.gz" ;;
+          Darwin-x86_64) asset="receipts_${RECEIPTS_VERSION}_Darwin_x86_64.tar.gz" ;;
+          Linux-x86_64) asset="receipts_${RECEIPTS_VERSION}_Linux_x86_64.tar.gz" ;;
+          Linux-aarch64|Linux-arm64) asset="receipts_${RECEIPTS_VERSION}_Linux_arm64.tar.gz" ;;
+          *) echo "receipts: unsupported platform $(uname -s)-$(uname -m)"; exit 1 ;;
+        esac
+        base="https://github.com/OWNER/receipts/releases/download/v${RECEIPTS_VERSION}"
+        tmp="$(mktemp -d)"
+        trap 'rm -rf "$tmp"' EXIT
+        curl -fsSL -o "$tmp/$asset" "$base/$asset"
+        curl -fsSL -o "$tmp/checksums.txt" "$base/checksums.txt"
+        python3 - "$tmp/checksums.txt" "$tmp/$asset" <<'EOF'
+        import hashlib, sys
+        sums, target = sys.argv[1], sys.argv[2]
+        want = None
+        for line in open(sums):
+            digest, name = line.strip().split(None, 1)
+            if name.lstrip("*") == target.split("/")[-1]:
+                want = digest
+        got = hashlib.sha256(open(target, "rb").read()).hexdigest()
+        if want is None or got != want:
+            sys.exit("checksum mismatch for " + target)
+        print("checksum ok: " + target)
+        EOF
+        mkdir -p "$tmp/bin"
+        tar -xzf "$tmp/$asset" -C "$tmp/bin"
+        echo "$tmp/bin" >> "$GITHUB_PATH"
+    - name: Run audit
+      id: audit
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: |
+        set -euo pipefail
+        receipts audit --format json --out /tmp/receipts-receipt.json
+        id="$(python3 -c 'import json;print(json.load(open("/tmp/receipts-receipt.json"))["id"])')"
+        summary="$(python3 -c 'import json;s=json.load(open("/tmp/receipts-receipt.json"))["summary"];print(str(s["verified"])+","+str(s["contradicted"])+","+str(s["unverified"])+","+str(s["unverifiable"])+","+str(s["flags"]))')"
+        echo "receipt-path=/tmp/receipts-receipt.json" >> "$GITHUB_OUTPUT"
+        echo "summary=$summary" >> "$GITHUB_OUTPUT"
+        echo "receipt-id=$id" >> "$GITHUB_OUTPUT"
+    - name: Build comment body
+      shell: bash
+      working-directory: ${{ inputs.working-directory }}
+      run: |
+        set -euo pipefail
+        if [ -n "${{ inputs.receipt }}" ]; then
+          receipts ci "${{ inputs.receipt }}" --out /tmp/receipts-comment.md
+        else
+          receipts ci --out /tmp/receipts-comment.md
+        fi
+    - name: Post or update PR comment
+      id: comment
+      if: inputs.comment == 'true'
+      shell: bash
+      env:
+        GH_TOKEN: ${{ github.token }}
+      run: |
+        set -euo pipefail
+        post() {
+          number="$1"
+          existing="$(gh api "repos/${{ github.repository }}/issues/${number}/comments" --paginate -q '.[] | select(.body | contains("<!-- receipts-report -->")) | .id' | head -n 1)"
+          if [ -n "$existing" ]; then
+            gh api -X PATCH "repos/${{ github.repository }}/issues/comments/${existing}" -F body="$(cat /tmp/receipts-comment.md)" >/dev/null
+            echo "outcome=updated" >> "$GITHUB_OUTPUT"
+          else
+            gh api -X POST "repos/${{ github.repository }}/issues/${number}/comments" -F body="$(cat /tmp/receipts-comment.md)" >/dev/null
+            echo "outcome=created" >> "$GITHUB_OUTPUT"
+          fi
+        }
+        if [ -n "${{ github.event.pull_request.number }}" ]; then
+          if post "${{ github.event.pull_request.number }}"; then
+            : posted
+          else
+            echo "receipts: comment posting failed (fork PR without write token is expected); uploading artifact instead"
+            echo "outcome=skipped" >> "$GITHUB_OUTPUT"
+          fi
+        else
+          echo "outcome=disabled" >> "$GITHUB_OUTPUT"
+        fi
+    - name: Upload report artifact
+      if: steps.comment.outputs.outcome == 'skipped' || inputs.comment != 'true'
+      uses: actions/upload-artifact@v4
+      with:
+        name: receipts-report
+        path: |
+          /tmp/receipts-comment.md
+          /tmp/receipts-receipt.json
+    - name: Apply fail policy
+      shell: bash
+      run: |
+        set -euo pipefail
+        summary="${{ steps.audit.outputs.summary }}"
+        contradicted="$(echo "$summary" | cut -d, -f2)"
+        flags="$(echo "$summary" | cut -d, -f5)"
+        case "${{ inputs.fail-on }}" in
+          contradictions)
+            if [ "$contradicted" -gt 0 ]; then echo "receipts: $contradicted contradicted claims"; exit 1; fi ;;
+          findings)
+            if [ "$contradicted" -gt 0 ] || [ "$flags" -gt 0 ]; then echo "receipts: findings present ($summary)"; exit 1; fi ;;
+          never|"")
+            : ;;
+          *)
+            echo "receipts: unknown fail-on ${{ inputs.fail-on }}"; exit 2 ;;
+        esac

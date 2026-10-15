@@ -1,0 +1,25 @@
+RECEIPT RC-4F2A  opencode  tier 0
+Baseline confidence: LOW
+Created: 2026-10-14T12:00:00Z
+Duration: 840000ms
+
+CLAIMS
+  C-001 "all tests pass"  UNVERIFIED
+    No command evidence exists in audit mode.
+  C-002 "only touched src/auth"  VERIFIED
+    Observed changed paths match the stated list.
+    Evidence: E-001
+
+FLAGS
+  high  TEST_ASSERTIONS_REDUCED  Assertion tokens reduced
+    tests/auth.test.ts: 8 -> 5 assertion tokens
+    Paths: tests/auth.test.ts
+
+EVIDENCE
+  E-001  diff  2026-10-14T12:00:00Z
+  E-002  diff  2026-10-14T12:00:00Z
+
+WARNINGS
+  - adapter issue: no transcript detected
+
+Summary: 1 verified, 0 contradicted, 1 unverified, 0 unverifiable, 1 flag
