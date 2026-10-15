@@ -23,13 +23,11 @@ Status: active
 
 ## D-002: Repository state and git init
 
-Finding: `/Users/jasonamadi/receipts` is not a git repository. It contains only the spec file. There are no uncommitted changes to preserve and no history to keep.
+Finding at start: `/Users/jasonamadi/receipts` was not a git repository. It contained only the spec file.
 
-Decision: do not run `git init` automatically. Initializing git changes repo state and the spec forbids silent git state changes.
+Update 2026-10-15: at the owner request, the tree is now git initialized (main branch), committed (one initial commit with the full task 1 to 59 tree), and pushed to https://github.com/Jasowills/receipts. Remote description set via gh. Working tree clean at push time.
 
-Follow up: ask owner whether to `git init`, add initial commit, and set remote. CI workflow in Phase A Task 5 assumes a GitHub remote eventually, but local validation does not require it. Record remote here when known.
-
-Status: open question for owner
+Status: done
 
 ## D-003: Go module path
 
