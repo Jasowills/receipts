@@ -116,6 +116,12 @@ Decision for Task 55: SVG is the required portable badge; PNG is deferred. Go ha
 
 Status: deferred
 
+## D-014: Agent skill as a core product part
+
+Decision: `skills/receipts/` ships as a core product surface, not an add-on. Structure: concise `SKILL.md` entry plus `references/` procedures (workflow, evidence, verdicts, install). The authority principle holds throughout: Receipts derives verdicts from verifiable evidence and fixed rules, while the skill only guides collection and response. An agent cannot pass by writing success into a report; adversarial tests pin this (false success claim with failing evidence contradicts, skipped checks stay unverified, missing evidence never verifies, pasted chat output proves nothing). OpenCode discovery paths verified against official docs; Claude Code paths follow the shared Agent Skills convention corroborated by those docs. This skill covers evidence-backed claim verification only, not general security testing.
+
+Status: active
+
 ## Verification items (ASSUMPTION TO VERIFY)
 
 ### V-001: OpenCode transcript location and format
@@ -242,3 +248,4 @@ Status: DEFERRED to Phase F Task 48
 - 2026-10-14: V-004 partially verified from code and community sources (no local install; adapter deferred to v0.3). D-012 recorded (LLM opt-in shape). Phase G Tasks 49 to 52 done (ci command, action, codex investigation, LLM extractor).
 - 2026-10-15: V-006 checked (receipts name taken on npm and .dev; only rcpt-cli free). D-013 recorded (PNG deferred). Phase G Tasks 53 to 56 done (TOML config, policies, SVG badge, name checks).
 - 2026-10-15: Phase G Tasks 57 to 59 done (release config validated on four arch builds, npm wrapper proven provisionally, acceptance evaluated). Build complete; release blocked on name, license, repo.
+- 2026-10-15: D-014 recorded (agent skill as core product part with authority principle). Skill entry plus four references plus four adversarial tests added per owner direction.

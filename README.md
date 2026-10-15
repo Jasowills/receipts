@@ -301,6 +301,15 @@ the GitHub Action, `testdata/` the golden files and labeled dataset.
 `IMPLEMENTATION_PLAN.md` is the build log; `DECISIONS.md` records
 every verification source and open question.
 
+## Agent skill
+
+`skills/receipts/` teaches coding agents to use Receipts inside
+their workflow: when to run checks, what counts as evidence, how to
+read the four verdicts, and how to report honestly. The CLI decides
+every verdict; the skill never replaces a check with an assertion.
+Copy it into a discovery path (see `skills/receipts/references/`
+for OpenCode and Claude Code install locations).
+
 ## Contributing and security
 
 Bug reports and small focused changes are welcome. Keep changes
