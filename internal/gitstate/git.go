@@ -22,6 +22,9 @@ func runGit(ctx context.Context, dir string, args ...string) (string, error) {
 	cmd.Stdout = &stdout
 	cmd.Stderr = &stderr
 	if err := cmd.Run(); err != nil {
+		if errors.Is(err, exec.ErrNotFound) {
+			return "", fmt.Errorf("git executable not found in PATH")
+		}
 		se := strings.TrimSpace(stderr.String())
 		if strings.Contains(se, "not a git repository") {
 			return "", fmt.Errorf("%w: %s", ErrNotGit, firstLine(se))

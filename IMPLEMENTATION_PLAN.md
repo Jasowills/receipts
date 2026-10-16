@@ -1037,6 +1037,7 @@ Each entry records exact command, result, and date. Update after every task.
 - Phase G Tasks 49-52: render comment 4 PASS + golden; cli ci 4 PASS; action YAML + 5 bash-n PASS; codex investigated, deferred; claims LLM 5 PASS. Full suite PASS. Zero requires.
 - Phase G Tasks 53-56: config 6 PASS + schema; merge 2 PASS; cli policy 5 PASS; render svg 4 PASS + golden + show svg PASS; name checks via registry/RDAP reads. Full suite + race PASS. Zero requires.
 - Phase G Tasks 57-59: 4 arch builds compile + smoke + checksums; node mapping/checksum execute green; action YAML + bash-n PASS; full suite (17 pkgs) + race PASS. Zero requires.
+- Adversarial chaos pass 2026-10-15: 10 scenarios executed (disk full, corrupt chain, stale lock, read-only store, missing git/sqlite3, 6x concurrency, SIGINT, orphans, broken pipe, file workdir). Two LOW findings fixed and retested: missing git executable message (ADV-0001), adapter error prefix stacking (ADV-0002).
 
 ## Unresolved verification items (summary, detail in DECISIONS.md)
 

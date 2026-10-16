@@ -107,3 +107,14 @@ func TestReadOnlyDB(t *testing.T) {
 		t.Fatalf("Messages on read only db: %v", err)
 	}
 }
+
+func TestErrorsCarryNoSelfPrefix(t *testing.T) {
+	a := Adapter{DBPath: filepath.Join(t.TempDir(), "missing.db")}
+	_, err := a.LatestSession(context.Background(), "/work/proj")
+	if err == nil {
+		t.Fatalf("expected error, got nil")
+	}
+	if strings.Count(err.Error(), "opencode") > 0 {
+		t.Errorf("adapter errors must not self prefix; callers add context. got %q", err.Error())
+	}
+}

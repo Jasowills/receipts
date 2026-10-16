@@ -212,3 +212,14 @@ func mustFixture(t *testing.T) []byte {
 	}
 	return data
 }
+
+func TestErrorsCarryNoSelfPrefix(t *testing.T) {
+	a := Adapter{ProjectsRoot: filepath.Join(t.TempDir(), "none")}
+	_, err := a.LatestSession(t.Context(), "/work/proj")
+	if err == nil {
+		t.Fatalf("expected error, got nil")
+	}
+	if strings.Count(err.Error(), "claude") > 0 {
+		t.Errorf("adapter errors must not self prefix; callers add context. got %q", err.Error())
+	}
+}

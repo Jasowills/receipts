@@ -67,7 +67,7 @@ func (a Adapter) LatestSession(ctx context.Context, workdir string) (adapters.Se
 	// Fallback: scan project dirs for a cwd match, newest first.
 	ref, serr := latestByCwd(a.root(), abs)
 	if serr != nil {
-		return adapters.SessionRef{}, fmt.Errorf("claude: no session recorded for %s", abs)
+		return adapters.SessionRef{}, fmt.Errorf("no session recorded for %s", abs)
 	}
 	return ref, nil
 }
@@ -190,15 +190,15 @@ func (a Adapter) Messages(ctx context.Context, session adapters.SessionRef) ([]a
 	}
 	fi, err := os.Stat(session.Path)
 	if err != nil {
-		return nil, fmt.Errorf("claude: %w", err)
+		return nil, fmt.Errorf("%w", err)
 	}
 	_ = fi
 	if err := adapters.CheckFileSize(session.Path); err != nil {
-		return nil, fmt.Errorf("claude: %w", err)
+		return nil, fmt.Errorf("%w", err)
 	}
 	data, err := os.ReadFile(session.Path)
 	if err != nil {
-		return nil, fmt.Errorf("claude: %w", err)
+		return nil, fmt.Errorf("%w", err)
 	}
 	return parseJSONL(data)
 }

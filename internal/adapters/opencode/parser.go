@@ -36,7 +36,7 @@ func parseSessionRows(data []byte) ([]sessionRow, error) {
 		return nil, nil
 	}
 	if err := dec.Decode(&rows); err != nil {
-		return nil, fmt.Errorf("opencode: decode session rows: %w", err)
+		return nil, fmt.Errorf("decode session rows: %w", err)
 	}
 	return rows, nil
 }
@@ -44,7 +44,7 @@ func parseSessionRows(data []byte) ([]sessionRow, error) {
 // selectLatest picks the most recently updated session.
 func selectLatest(rows []sessionRow) (sessionRow, error) {
 	if len(rows) == 0 {
-		return sessionRow{}, fmt.Errorf("opencode: no sessions for this directory")
+		return sessionRow{}, fmt.Errorf("no sessions for this directory")
 	}
 	cp := append([]sessionRow{}, rows...)
 	sort.Slice(cp, func(a, b int) bool { return cp[a].UpdatedMs > cp[b].UpdatedMs })
@@ -58,7 +58,7 @@ func parseMessageRows(data []byte) ([]adapters.Message, error) {
 	}
 	var rows []messageRow
 	if err := json.Unmarshal(data, &rows); err != nil {
-		return nil, fmt.Errorf("opencode: decode message rows: %w", err)
+		return nil, fmt.Errorf("decode message rows: %w", err)
 	}
 	return messagesFromRows(rows)
 }
@@ -74,7 +74,7 @@ func messagesFromRows(rows []messageRow) ([]adapters.Message, error) {
 		}
 	}
 	if n > adapters.MaxMessages {
-		return nil, fmt.Errorf("opencode: %d messages exceeds limit %d", n, adapters.MaxMessages)
+		return nil, fmt.Errorf("%d messages exceeds limit %d", n, adapters.MaxMessages)
 	}
 	var out []adapters.Message
 	var cur *adapters.Message

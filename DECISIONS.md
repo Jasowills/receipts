@@ -248,4 +248,5 @@ Status: DEFERRED to Phase F Task 48
 - 2026-10-14: V-004 partially verified from code and community sources (no local install; adapter deferred to v0.3). D-012 recorded (LLM opt-in shape). Phase G Tasks 49 to 52 done (ci command, action, codex investigation, LLM extractor).
 - 2026-10-15: V-006 checked (receipts name taken on npm and .dev; only rcpt-cli free). D-013 recorded (PNG deferred). Phase G Tasks 53 to 56 done (TOML config, policies, SVG badge, name checks).
 - 2026-10-15: Phase G Tasks 57 to 59 done (release config validated on four arch builds, npm wrapper proven provisionally, acceptance evaluated). Build complete; release blocked on name, license, repo.
+- 2026-10-15: adversarial chaos pass (10 scenarios). Fixed ADV-0001 (missing git executable message) and ADV-0002 (adapter error prefix stacking), both retested live plus regression tests.
 - 2026-10-15: D-014 recorded (agent skill as core product part with authority principle). Skill entry plus four references plus four adversarial tests added per owner direction.

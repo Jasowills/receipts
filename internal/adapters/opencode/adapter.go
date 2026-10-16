@@ -66,7 +66,7 @@ func (a Adapter) Detect(_ context.Context, _ string) (bool, error) {
 func sqlite3bin() (string, error) {
 	p, err := exec.LookPath("sqlite3")
 	if err != nil {
-		return "", fmt.Errorf("opencode: sqlite3 CLI not found in PATH (required to read the session database read only)")
+		return "", fmt.Errorf("sqlite3 CLI not found in PATH (required to read the session database read only)")
 	}
 	return p, nil
 }
@@ -91,12 +91,12 @@ func (a Adapter) query(ctx context.Context, sql string) ([]byte, error) {
 		if last == nil {
 			out := stdout.Bytes()
 			if int64(len(out)) > adapters.MaxTranscriptBytes {
-				return nil, fmt.Errorf("opencode: query output exceeds %d bytes", adapters.MaxTranscriptBytes)
+				return nil, fmt.Errorf("query output exceeds %d bytes", adapters.MaxTranscriptBytes)
 			}
 			return out, nil
 		}
 		if ctx.Err() != nil {
-			return nil, fmt.Errorf("opencode: query canceled: %w", ctx.Err())
+			return nil, fmt.Errorf("query canceled: %w", ctx.Err())
 		}
 		time.Sleep(50 * time.Millisecond)
 	}
@@ -107,7 +107,7 @@ func (a Adapter) query(ctx context.Context, sql string) ([]byte, error) {
 	if msg == "" {
 		msg = last.Error()
 	}
-	return nil, fmt.Errorf("opencode: sqlite3 query failed: %s", msg)
+	return nil, fmt.Errorf("sqlite3 query failed: %s", msg)
 }
 
 // LatestSession returns the most recently updated session for workdir,
@@ -129,7 +129,7 @@ func (a Adapter) LatestSession(ctx context.Context, workdir string) (adapters.Se
 	}
 	sel, err := selectLatest(rows)
 	if err != nil {
-		return adapters.SessionRef{}, fmt.Errorf("opencode: %w (no session recorded for %s)", err, abs)
+		return adapters.SessionRef{}, fmt.Errorf("%w (no session recorded for %s)", err, abs)
 	}
 	fi, _ := os.Stat(a.dbPath())
 	var mod time.Time

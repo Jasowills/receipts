@@ -156,3 +156,17 @@ func TestSnapshotOutsideRepoFails(t *testing.T) {
 		t.Errorf("err = %v, want ErrNotGit", err)
 	}
 }
+
+func TestGitMissingNamesExecutable(t *testing.T) {
+	t.Setenv("PATH", t.TempDir())
+	_, err := FindRoot(context.Background(), t.TempDir())
+	if err == nil {
+		t.Fatalf("expected error without git, got nil")
+	}
+	if got := err.Error(); !strings.Contains(got, "not found in PATH") {
+		t.Errorf("error should name the missing executable, got %q", got)
+	}
+	if errors.Is(err, ErrNotGit) {
+		t.Errorf("missing git must not masquerade as non repo")
+	}
+}

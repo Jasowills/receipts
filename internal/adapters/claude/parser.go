@@ -43,7 +43,7 @@ type line struct {
 // truncation points.
 func parseJSONL(data []byte) ([]adapters.Message, error) {
 	if int64(len(data)) > adapters.MaxTranscriptBytes {
-		return nil, fmt.Errorf("claude: transcript exceeds %d bytes", adapters.MaxTranscriptBytes)
+		return nil, fmt.Errorf("transcript exceeds %d bytes", adapters.MaxTranscriptBytes)
 	}
 	lines := bytes.Split(data, []byte("\n"))
 	var out []adapters.Message
@@ -54,11 +54,11 @@ func parseJSONL(data []byte) ([]adapters.Message, error) {
 			continue
 		}
 		if len(out) >= adapters.MaxMessages {
-			return out, fmt.Errorf("claude: message cap %d reached with content remaining", adapters.MaxMessages)
+			return out, fmt.Errorf("message cap %d reached with content remaining", adapters.MaxMessages)
 		}
 		var l line
 		if err := json.Unmarshal(raw, &l); err != nil {
-			return nil, fmt.Errorf("claude: corrupt line %d: %w", li+1, err)
+			return nil, fmt.Errorf("corrupt line %d: %w", li+1, err)
 		}
 		switch l.Type {
 		case "system":
